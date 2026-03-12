@@ -23,13 +23,13 @@ public class Move : MonoBehaviour
     float _velocityY;
     float _pitch; // 上下视角（欧拉角 X）
 
+    bool _controlEnabled = true;
+
     void Start()
     {
         _controller = GetComponent<CharacterController>();
-
-        // 第一人称：锁定并隐藏鼠标
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // 如果开局就有 UI Canvas 打开，则不要强制锁鼠标（否则 UI 按钮无法交互）
+        SetControlEnabled(!CanvasInputLock.IsUiLockActive);
 
         // 初始化垂直视角为当前 X 欧拉角，避免开局猛抬头/低头
         _pitch = transform.eulerAngles.x;
@@ -38,8 +38,29 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if (!_controlEnabled || Cursor.lockState != CursorLockMode.Locked)
+            return;
+
         HandleMouseLook();
         HandleMovement();
+    }
+
+    public void SetControlEnabled(bool enabled, bool updateCursorState = true)
+    {
+        _controlEnabled = enabled;
+        if (!updateCursorState)
+            return;
+
+        if (enabled)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     void HandleMouseLook()
