@@ -88,7 +88,8 @@ GameObject:
   - component: {fileID: 9219890652619504976}
   - component: {fileID: 6208183718748542340}
   - component: {fileID: 959171686629526832}
-  - component: {fileID: 168082139737544763}
+  - component: {fileID: 5878851403779354449}
+  - component: {fileID: 8280608566311855575}
   m_Layer: 5
   m_Name: StartCanvas
   m_TagString: Untagged
@@ -198,7 +199,7 @@ MonoBehaviour:
   rotatingImage1: {fileID: 7622990932522907557}
   rotatingImage2: {fileID: 233328067341791878}
   rotateSpeed: 30
---- !u!114 &168082139737544763
+--- !u!114 &5878851403779354449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,6 +211,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b960004c02e4a254ebc3a228ba041f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8280608566311855575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176710404329451947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8225f65a51e22224f888601d79d4bfcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 0.9
+  transitionTime: 0.15
 --- !u!1 &467918893926634318
 GameObject:
   m_ObjectHideFlags: 0
