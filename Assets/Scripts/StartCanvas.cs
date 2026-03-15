@@ -15,7 +15,6 @@ public class StartCanvas : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (rotatingImage1 != null && rotatingImage2 != null)

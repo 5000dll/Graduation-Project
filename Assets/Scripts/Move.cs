@@ -19,6 +19,15 @@ public class Move : MonoBehaviour
     [Tooltip("垂直视角上限（度）")]
     public float pitchMax = 85f;
 
+    [Header("缩放 (Zoom)")]
+    [Tooltip("滚轮缩放灵敏度")]
+    public float zoomSensitivity = 10f;
+    [Tooltip("最小视野 (最放大)")]
+    public float minFOV = 20f;
+    [Tooltip("最大视野 (最还原)")]
+    public float maxFOV = 60f;
+    private Camera _cam;
+
     CharacterController _controller;
     float _velocityY;
     float _pitch; // 上下视角（欧拉角 X）
@@ -28,7 +37,9 @@ public class Move : MonoBehaviour
     void Start()
     {
         _controller = GetComponent<CharacterController>();
-        // 如果开局就有 UI Canvas 打开，则不要强制锁鼠标（否则 UI 按钮无法交互）
+        
+        _cam = GetComponentInChildren<Camera>();
+
         SetControlEnabled(!CanvasInputLock.IsUiLockActive);
 
         // 初始化垂直视角为当前 X 欧拉角，避免开局猛抬头/低头
@@ -43,6 +54,8 @@ public class Move : MonoBehaviour
 
         HandleMouseLook();
         HandleMovement();
+    
+        HandleZoom();
     }
 
     public void SetControlEnabled(bool enabled, bool updateCursorState = true)
@@ -98,6 +111,19 @@ public class Move : MonoBehaviour
         velocity.y = _velocityY;
 
         _controller.Move(velocity * Time.deltaTime);
+    }
+
+    void HandleZoom()
+    {
+        if (_cam == null) return;
+        
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (Mathf.Abs(scroll) > 0.01f)
+        {
+            // 改变相机视野 (Field of View)
+            _cam.fieldOfView -= scroll * zoomSensitivity;
+            _cam.fieldOfView = Mathf.Clamp(_cam.fieldOfView, minFOV, maxFOV);
+        }
     }
 
     void OnDisable()
