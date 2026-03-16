@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class sanxingduiCanvas_in : BaseWindow
 {
     public Button closeBtn; // 建议写全称防止混淆
-    void Awake()
+    private void Awake()
     {
         if (closeBtn != null)
         {
