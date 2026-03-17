@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43202336351575925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -528,6 +528,8 @@ GameObject:
   - component: {fileID: 8562591984958305917}
   - component: {fileID: 3540139173090604140}
   - component: {fileID: 1621739469938431965}
+  - component: {fileID: 7803026707449984483}
+  - component: {fileID: 6467549128217791928}
   m_Layer: 0
   m_Name: modeltestcanvas
   m_TagString: Untagged
@@ -606,7 +608,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3540139173090604140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +638,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b960004c02e4a254ebc3a228ba041f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7803026707449984483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790123825758513171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939d9d32c7822d94fae3ff5e4c5556dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeBtn: {fileID: 7116881454760649818}
+--- !u!225 &6467549128217791928
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790123825758513171}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6683606565310721029
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +676,7 @@ GameObject:
   - component: {fileID: 5924442945223031733}
   - component: {fileID: 7237522695274222679}
   m_Layer: 0
-  m_Name: Button
+  m_Name: btn_reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +823,7 @@ Transform:
   m_GameObject: {fileID: 6903461650985185128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1234, y: -1407, z: 42}
+  m_LocalPosition: {x: -1234, y: -1407, z: 34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -834,8 +861,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 1500
+  field of view: 55
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

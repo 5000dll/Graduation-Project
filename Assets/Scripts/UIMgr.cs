@@ -43,6 +43,9 @@ public class UIMgr : MonoBehaviour
         string name = typeof(T).Name;
         if (Instance._windowDic.TryGetValue(name, out BaseWindow win))
         {
+            //win.Open();
+            win.gameObject.SetActive(true);
+            win.OpenWithAnim();
             win.Open();
         }
         else
@@ -57,7 +60,10 @@ public class UIMgr : MonoBehaviour
         string name = typeof(T).Name;
         if (Instance._windowDic.TryGetValue(name, out BaseWindow win))
         {
-            win.Close();
+            win.CloseWithAnim(() =>
+            {
+                win.Close();
+            });
         }
     }
 }

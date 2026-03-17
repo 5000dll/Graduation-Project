@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class sanxingduiCanvas : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class sanxingduiCanvas : MonoBehaviour
 
     private bool hasOpenedTipWindow = false;
     private bool isPlayerInRange = false;
-    
+
     void Update()
     {
          // 计算当前物体与目标物体之间的距离
@@ -31,6 +33,11 @@ public class sanxingduiCanvas : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
+                /*
+                this.CloseWithAnim(() => UIMgr.CloseWindow<tipsCanvas>());
+                UIMgr.OpenWindow<sanxingduiCanvas_in>();
+                */
+
                 UIMgr.CloseWindow<tipsCanvas>();
                 UIMgr.OpenWindow<sanxingduiCanvas_in>();
             }
