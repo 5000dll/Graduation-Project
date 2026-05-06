@@ -23,9 +23,16 @@ public static class UIExtensions
         group.alpha = 0f;
         target.transform.localScale = Vector3.one * 0.4f; // 从更小开始弹出
 
-        // 3. 组合动画
-        group.DOFade(1f, 0.3f).SetEase(Ease.OutCubic);
-        target.transform.DOScale(1f, 0.4f).SetEase(Ease.OutBack); // OutBack 才有弹性的感觉
+        Sequence seq = DOTween.Sequence();
+        seq.SetUpdate(true);
+        seq.Append(group.DOFade(1f, 0.35f).SetEase(Ease.OutQuad));
+        seq.Join(target.transform.DOScale(1f, 0.35f).SetEase(Ease.OutQuad));
+        seq.OnComplete(() =>
+        {
+            group.alpha = 1f;
+            group.blocksRaycasts = true;
+            group.interactable = true;
+        });
     }
 
     /// <summary>
@@ -38,7 +45,7 @@ public static class UIExtensions
 
         // 动画序列
         Sequence seq = DOTween.Sequence();
-        seq.Append(target.transform.DOScale(0.8f, 0.2f).SetEase(Ease.InBack));
+        seq.Append(target.transform.DOScale(0.8f, 0.2f).SetEase(Ease.InBack)).SetUpdate(true);
         seq.Join(group.DOFade(0, 0.2f));
         
         // 动画结束后的清理工作

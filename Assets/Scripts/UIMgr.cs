@@ -5,6 +5,7 @@ public class UIMgr : MonoBehaviour
 {
     // 单例，方便全局访问
     public static UIMgr Instance { get; private set; }
+    private bool isMenuOpen = false;
 
     // 存储场景中所有的 UI 窗口
     private Dictionary<string, BaseWindow> _windowDic = new Dictionary<string, BaseWindow>();
@@ -43,10 +44,9 @@ public class UIMgr : MonoBehaviour
         string name = typeof(T).Name;
         if (Instance._windowDic.TryGetValue(name, out BaseWindow win))
         {
-            //win.Open();
             win.gameObject.SetActive(true);
             win.OpenWithAnim();
-            win.Open();
+            //win.Open();
         }
         else
         {
@@ -64,6 +64,30 @@ public class UIMgr : MonoBehaviour
             {
                 win.Close();
             });
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleMenu();
+        }
+    }
+
+private void ToggleMenu()
+    {
+        if (!isMenuOpen)
+        {
+            UIMgr.OpenWindow<EditCanvas>();
+            Time.timeScale = 0f;
+            isMenuOpen = true;
+        }
+        else
+        {
+            UIMgr.CloseWindow<EditCanvas>();
+            Time.timeScale = 1f;
+            isMenuOpen = false;
         }
     }
 }

@@ -686,7 +686,6 @@ GameObject:
   - component: {fileID: 7536041428663615363}
   - component: {fileID: 8168914232658668153}
   - component: {fileID: 2991838932872947190}
-  - component: {fileID: 4865708362185529561}
   - component: {fileID: 7262694566863533853}
   - component: {fileID: 8714499543885939382}
   m_Layer: 0
@@ -705,7 +704,7 @@ RectTransform:
   m_GameObject: {fileID: 5275814211134167839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2975924799173486448}
@@ -717,7 +716,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1824804562870253250
 Canvas:
   m_ObjectHideFlags: 0
@@ -793,20 +792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b960004c02e4a254ebc3a228ba041f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4865708362185529561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275814211134167839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8225f65a51e22224f888601d79d4bfcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScale: 0.9
-  transitionTime: 0.15
 --- !u!114 &7262694566863533853
 MonoBehaviour:
   m_ObjectHideFlags: 0

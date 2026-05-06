@@ -91,7 +91,7 @@ public class CanvasButtonHoverEffect : MonoBehaviour
             float targetValue = isTarget ? 1f : 0f;
 
             // 这里的 currentLerpFactor 会在 0 和 1 之间平滑滑动
-            status.currentLerpFactor = Mathf.MoveTowards(status.currentLerpFactor, targetValue, Time.deltaTime / transitionTime);
+            status.currentLerpFactor = Mathf.MoveTowards(status.currentLerpFactor, targetValue, Time.unscaledDeltaTime / transitionTime);
 
             // 执行缩放
             rt.localScale = Vector3.Lerp(status.originalScale, status.originalScale * hoverScale, status.currentLerpFactor);
