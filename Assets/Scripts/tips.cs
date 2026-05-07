@@ -33,22 +33,12 @@ public class tips : MonoBehaviour
                 }
             }
 
-            if (isNextValue == true)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    UIMgr.CloseWindow<tipsCanvas>();
-                    //UIMgr.OpenWindow<Dialogue_mirrorWindow>();
-                }
+                UIMgr.CloseWindow<tipsCanvas>();
+                UIMgr.OpenWindow<Talk>();
             }
-            else if (isNextValue == false)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    UIMgr.CloseWindow<tipsCanvas>();
-                    //UIMgr.OpenWindow<Dialogue_xqcxWindow>();
-                }
-            }
+
         }
         else if (distance > maxDistance)
         {
