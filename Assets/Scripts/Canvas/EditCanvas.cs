@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class EditCanvas : BaseWindow
@@ -14,33 +15,66 @@ public class EditCanvas : BaseWindow
     [SerializeField] private GameObject Panel_help;
     [SerializeField] private GameObject Panel_music;
 
-    private void OnEnable()
-    {
-        // 每次激活时强制回到帮助面板
-        ShowPanel(Panel_help);
+    [Header("音量控制")]
+    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private TMP_Text bgmValueText;
+    [SerializeField] private TMP_Text sfxValueText;
 
-        btn_help.onClick.AddListener(OnHelpClick);
-        btn_music.onClick.AddListener(OnMusicClick);
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        ShowPanel(Panel_help);
+        InitVolumeSliders();
+    }
+
+    private void Start()
+    {
+        btn_help.onClick.AddListener(() => ShowPanel(Panel_help));
+        btn_music.onClick.AddListener(() => ShowPanel(Panel_music));
         btn_exit.onClick.AddListener(OnExitClick);
-        btn_close.onClick.AddListener(OnCloseClick);
+        btn_close.onClick.AddListener(() => UIMgr.CloseWindow<EditCanvas>());
     }
 
-    private void OnDisable()
+    private void InitVolumeSliders()
     {
-        btn_help.onClick.RemoveListener(OnHelpClick);
-        btn_music.onClick.RemoveListener(OnMusicClick);
-        btn_exit.onClick.RemoveListener(OnExitClick);
-        btn_close.onClick.RemoveListener(OnCloseClick);
+        if (AudioManager.Instance == null) return;
+
+        // 设置滑动条初始值
+        bgmSlider.value = AudioManager.Instance.GetBGMVolume();
+        sfxSlider.value = AudioManager.Instance.GetSFXVolume();
+        UpdateVolumeText();
+
+        // 绑定滑动事件
+        bgmSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
+        sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
     }
 
-    private void OnHelpClick()
+    private void OnBGMVolumeChanged(float value)
     {
-        ShowPanel(Panel_help);
+        AudioManager.Instance.SetBGMVolume(value);
+        UpdateVolumeText();
     }
 
-    private void OnMusicClick()
+    private void OnSFXVolumeChanged(float value)
     {
-        ShowPanel(Panel_music);
+        AudioManager.Instance.SetSFXVolume(value);
+        UpdateVolumeText();
+    }
+
+    private void UpdateVolumeText()
+    {
+        if (bgmValueText != null)
+            bgmValueText.text = Mathf.RoundToInt(bgmSlider.value * 100) + "%";
+        if (sfxValueText != null)
+            sfxValueText.text = Mathf.RoundToInt(sfxSlider.value * 100) + "%";
+    }
+
+    private void ShowPanel(GameObject target)
+    {
+        Panel_help.SetActive(false);
+        Panel_music.SetActive(false);
+        target.SetActive(true);
     }
 
     private void OnExitClick()
@@ -50,17 +84,5 @@ public class EditCanvas : BaseWindow
 #else
         Application.Quit();
 #endif
-    }
-
-    private void OnCloseClick()
-    {
-        UIMgr.CloseWindow<EditCanvas>();
-    }
-
-    private void ShowPanel(GameObject target)
-    {
-        Panel_help.SetActive(false);
-        Panel_music.SetActive(false);
-        target.SetActive(true);
     }
 }
