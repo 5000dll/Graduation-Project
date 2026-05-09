@@ -12,11 +12,13 @@ public class UIMgr : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("UIMgr Awake 已执行");
         if (Instance == null)
         {
             Instance = this;
             // 找到场景中所有继承了 BaseWindow 的脚本并注册
             InitRegisterWindows();
+            Debug.Log($"注册完成，共 {_windowDic.Count} 个窗口");
         }
         else
         {
@@ -73,9 +75,21 @@ public class UIMgr : MonoBehaviour
         {
             ToggleMenu();
         }
+
+                // 按 F1 打印所有已注册的窗口
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Debug.Log("===== UIMgr 已注册窗口列表 =====");
+            foreach (var kvp in _windowDic)
+            {
+                Debug.Log($"窗口名: {kvp.Key} | 对象: {kvp.Value.gameObject.name} | 激活状态: {kvp.Value.gameObject.activeSelf}");
+            }
+            Debug.Log($"共 {_windowDic.Count} 个窗口");
+            Debug.Log("================================");
+        }
     }
 
-private void ToggleMenu()
+    private void ToggleMenu()
     {
         if (!isMenuOpen)
         {

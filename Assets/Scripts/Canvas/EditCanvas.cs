@@ -26,6 +26,19 @@ public class EditCanvas : BaseWindow
         base.OnEnable();
         ShowPanel(Panel_help);
         InitVolumeSliders();
+
+        // 锁定视角
+        Move move = FindFirstObjectByType<Move>();
+        if (move != null) move.SetControlEnabled(false);
+    }
+
+    private void OnDisable()
+    {
+        // 解锁视角
+        Move move = FindFirstObjectByType<Move>();
+        if (move != null) move.SetControlEnabled(true);
+
+        Time.timeScale = 1f;
     }
 
     private void Start()
@@ -40,12 +53,10 @@ public class EditCanvas : BaseWindow
     {
         if (AudioManager.Instance == null) return;
 
-        // 设置滑动条初始值
         bgmSlider.value = AudioManager.Instance.GetBGMVolume();
         sfxSlider.value = AudioManager.Instance.GetSFXVolume();
         UpdateVolumeText();
 
-        // 绑定滑动事件
         bgmSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
         sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
     }

@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 2803936004630139948}
   - component: {fileID: 3896416383211818937}
   - component: {fileID: 1800906683947250961}
-  - component: {fileID: 769504009836238279}
   - component: {fileID: 315883661519396259}
   m_Layer: 0
   m_Name: sanxingduiCanvas
@@ -179,20 +178,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &769504009836238279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8453598388875795402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91889837afe30944794e8318286530d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  maxDistance: 2
 --- !u!65 &315883661519396259
 BoxCollider:
   m_ObjectHideFlags: 0
