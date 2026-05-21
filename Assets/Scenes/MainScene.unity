@@ -2868,40 +2868,40 @@ MonoBehaviour:
   cardDataLibrary:
   - id: 0
     name: "\u9752\u94DC\u7EB5\u76EE\u9762\u5177"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: 2e367da4d4efd414890f6ce5f35eca35, type: 3}
   - id: 1
     name: "\u8700\u9526\u7EC7\u673A"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: 6345bef4973dda44bb337bd1f7b19cf1, type: 3}
   - id: 2
     name: "\u5DDD\u6C5F\u53F7\u5B50"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: b9c2083756b1a4742a6cb1875d948e2c, type: 3}
   - id: 3
     name: "\u592A\u9633\u795E\u9E1F"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: b60af5e0b1c91e24ba48b54f099ce3b2, type: 3}
   - id: 4
     name: "\u90FD\u6C5F\u5830"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: 54ca735a38505ee4d9be726111908850, type: 3}
   - id: 5
     name: "\u5927\u718A\u732B"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: b257de401a6e2284d8fb5181db589629, type: 3}
   - id: 6
     name: "\u5DDD\u5267\u53D8\u8138"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: e7ce44b2b1aab6a46b7820fc0c57800d, type: 3}
   - id: 7
     name: "\u76D6\u7897\u8336"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: f2f6543a17948044f954373df7f11ee8, type: 3}
   - id: 8
     name: "\u8700\u7EE3\u8299\u84C9"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: 7c30d87e31c87964a8126bb5660fd676, type: 3}
   - id: 9
     name: "\u6B66\u4FAF\u7960"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: 01a5f355c7ccfaf42b6187df4dbbb368, type: 3}
   - id: 10
     name: "\u91D1\u6C99\u91D1\u9762\u5177"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    icon: {fileID: 21300000, guid: 9d8ffbb5ab8d91745a16ac5b60bbe111, type: 3}
   - id: 11
-    name: "\u9EBB\u8FA3\u70EB"
-    icon: {fileID: 21300000, guid: 0386d81cae48e994cb709cc0c8f15238, type: 3}
+    name: "\u81EA\u8D21\u706F\u4F1A"
+    icon: {fileID: 21300000, guid: f1cd6cb7b24234741875a5edd4e0e0ff, type: 3}
   cardPrefab: {fileID: 3967726359141789245, guid: c47e19f5172febe45839845843786b4e, type: 3}
   gridParent: {fileID: 5770241984662566445}
   attemptsText: {fileID: 214778548}
@@ -3343,7 +3343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782408778590243486, guid: 69570af7c24d21540990be6531cb546d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5782408778590243486, guid: 69570af7c24d21540990be6531cb546d, type: 3}
       propertyPath: m_TagString
@@ -4468,7 +4468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103447164809118375, guid: 2f3a44f92770f504389b81719616292b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 975
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5103447164809118375, guid: 2f3a44f92770f504389b81719616292b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4480,7 +4480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275814211134167839, guid: 2f3a44f92770f504389b81719616292b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7159639237174650260, guid: 2f3a44f92770f504389b81719616292b, type: 3}
       propertyPath: m_Pivot.x
